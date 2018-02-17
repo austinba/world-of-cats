@@ -16,13 +16,12 @@ class CatBox extends React.Component {
       <div><img src={image} className="cat-image" /></div>
       <div className="cat-text">{fact}</div>
         <ResizeObserver onResize={(rect) => updateHeight(id, rect.height)} />
-        {height}
     </div>
   }
 }
 
 const mapStateToProps = state => ({
-  cats: state.cats
+  cats: state.cats.data
 });
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(catBoxActions, dispatch)

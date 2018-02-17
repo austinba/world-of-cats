@@ -1,4 +1,4 @@
-import R from 'ramda';
+import * as R from 'ramda';
 import request from 'superagent';
 import endpoints from '../config/api-endpoints';
 import xml from 'xml-parse';
@@ -44,3 +44,11 @@ export const getCatFacts = () =>
 request
   .get(endpoints.catFacts)
   .then(parseCatFactsJSONResponse);
+
+export const loadCats = () =>
+  Promise.all([getCatPhotos(), getCatFacts()])
+    .then( result => {
+      const images = result[0];
+      const facts = result[1];
+      return R.zipWith((image, fact) => ({image, fact}), images, facts);
+    })

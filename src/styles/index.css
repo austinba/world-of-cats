@@ -3,9 +3,13 @@
   display: inline-block;
   vertical-align: top;
   position: relative;
-
-
 }
 .cat-image {
   width: 100%;
+}
+.feed-column {
+  width: 280px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
 }
