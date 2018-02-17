@@ -10,8 +10,8 @@ class App extends React.Component {
   }
   render() {
     return <div>
-      {this.props.cats.map(({image, fact}) =>
-        <CatBox image={image} fact={fact} />
+      {this.props.cats.map(({image, fact}, id) =>
+        <CatBox image={image} fact={fact} id={id} key={id} />
       )}
     </div>
   }

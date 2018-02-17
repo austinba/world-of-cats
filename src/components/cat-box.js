@@ -1,20 +1,31 @@
 import React from 'react';
-import Dimensions from 'react-dimensions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import ResizeObserver from 'react-resize-observer';
+
+import * as catBoxActions from  '../actions/catBox';
 
 class CatBox extends React.Component {
 
   render() {
-    const Contents = Dimensions({elementResize: true})(dimensions =>
-      <div>
-        <div><img src={this.props.image} className="cat-image" /></div>
-        <div className="cat-text">{this.props.fact}</div>
-        <div>{dimensions.containerHeight}, {dimensions.containerWidth}</div>
-      </div>
-    );
+    const id = this.props.id;
+    const {image, fact, height} = this.props.cats[id];
+    const {updateHeight} = this.props.actions;
+
     return <div className="cat-box">
-      <Contents />
+      <div><img src={image} className="cat-image" /></div>
+      <div className="cat-text">{fact}</div>
+        <ResizeObserver onResize={(rect) => updateHeight(id, rect.height)} />
+        {height}
     </div>
   }
 }
 
-export default CatBox;
+const mapStateToProps = state => ({
+  cats: state.cats
+});
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(catBoxActions, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CatBox)
