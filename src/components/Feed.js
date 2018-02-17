@@ -5,7 +5,6 @@ import ResizeObserver from 'react-resize-observer';
 import * as R from 'ramda';
 
 import FeedColumn from './FeedColumn';
-import * as catsActions from '../actions/cats';
 import * as displayActions from '../actions/display';
 
 class Feed extends React.Component {
@@ -14,11 +13,8 @@ class Feed extends React.Component {
   }
   render() {
     const {cats, display} = this.props;
-    if(cats.status === 'LOADING') return <h2>LOADING...</h2>;
-    if(cats.status === 'ERROR') return <h2>ERROR LOADING CATS</h2>
-
     const columnCount = Math.floor(display.feedWidth / 280);
-    const columnCats = splitIntoColumns(cats.data, display.catBoxHeights, columnCount);
+    const columnCats = splitIntoColumns(cats, display.catBoxHeights, columnCount);
 
     return <div class="feed">
       <ResizeObserver onResize={(rect) => this.props.displayActions.updateFeedWidth(rect.width)} />
@@ -39,11 +35,8 @@ function splitIntoColumns(cats, boxHeights, columnCount) {
 }
 
 const mapDispatchToProps = dispatch => ({
-  catsActions: bindActionCreators(catsActions, dispatch),
   displayActions: bindActionCreators(displayActions, dispatch),
 })
 const mapStateToProps = state => ({
-  cats: state.cats,
-  display: state.display
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Feed)
