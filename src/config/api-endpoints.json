@@ -1,0 +1,4 @@
+{
+  "catPhotos": "http://thecatapi.com/api/images/get?format=xml&results_per_page=25",
+  "catFacts": "http://cors-proxy.htmldriven.com/?url=https://catfact.ninja/facts?limit=25"
+}
