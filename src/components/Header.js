@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router';
 export default function Header(props) {
   return (
     <div className="header">
-      <a href="/">All Cats</a><a href="/favorites">Favorites</a>
+      <Link to="/">All Cats</Link><Link to="/favorites">Favorites</Link>
     </div>
   );
 }

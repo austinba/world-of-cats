@@ -11,7 +11,7 @@ class App extends React.Component {
     super(props);
   }
   componentWillMount() {
-    this.props.catsActions.loadCats();
+    if(this.props.cats.status = 'NOT_LOADED') this.props.catsActions.loadCats();
   }
   render() {
     return <div>
@@ -24,5 +24,7 @@ class App extends React.Component {
 const mapDispatchToProps = dispatch => ({
   catsActions: bindActionCreators(catsActions, dispatch),
 })
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  cats: state.cats
+});
 export default connect(mapStateToProps, mapDispatchToProps)(App)

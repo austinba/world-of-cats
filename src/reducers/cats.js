@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 
 const initialState = {
-  status: 'LOADING'
+  status: 'NOT_LOADED'
 };
 
 const catsReducer = (state = initialState, action) => {

@@ -52,3 +52,4 @@ export const loadCats = () =>
       const facts = result[1];
       return R.zipWith((image, fact) => ({image, fact}), images, facts);
     })
+    .then( cats => cats.map((v,i) => R.assoc('id', i)(v)) );
