@@ -9,6 +9,9 @@ const displayReducer = (state = initialState, action) => {
     case 'FEED_UPDATE_WIDTH':
       return R.assoc('feedWidth', action.width)(state);
 
+    case 'CATBOX_UPDATE_HEIGHT':
+      return R.assocPath(['catBoxHeights', action.id], action.height)(state);
+
     default:
       return state;
   }

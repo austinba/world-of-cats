@@ -18,7 +18,7 @@ class Feed extends React.Component {
     if(cats.status === 'ERROR') return <h2>ERROR LOADING CATS</h2>
 
     const columnCount = Math.floor(display.feedWidth / 280);
-    const columnCats = splitIntoColumns(cats.data, columnCount);
+    const columnCats = splitIntoColumns(cats.data, display.catBoxHeights, columnCount);
 
     return <div class="feed">
       <ResizeObserver onResize={(rect) => this.props.displayActions.updateFeedWidth(rect.width)} />
@@ -27,13 +27,13 @@ class Feed extends React.Component {
   }
 }
 
-function splitIntoColumns(cats, columnCount) {
+function splitIntoColumns(cats, boxHeights, columnCount) {
   const columnHeights = Array(columnCount).fill(0);
   const columnCats = Array(columnCount).fill(0).map(()=>[]);
   cats.forEach((cat, id) => {
     const shortestColumn = columnHeights.indexOf(Math.min(...columnHeights)); // find the minimum index
     columnCats[shortestColumn].unshift(R.assoc('id', id)(cat));
-    columnHeights[shortestColumn] += cat.height || 1; // use 1 if height is not available
+    columnHeights[shortestColumn] += (boxHeights && boxHeights[id]) || 1; // use 1 if height is not available
   });
   return columnCats;
 }
