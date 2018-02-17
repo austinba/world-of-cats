@@ -1,10 +1,11 @@
-// import R from 'ramda';
-// import request from 'superagent';
-// import endpoints from '../config/api-endpoints';
-const request = require('superagent');
-const endpoints = require('../config/api-endpoints');
-const xml = require('xml-parse');
-const R = require('ramda');
+import R from 'ramda';
+import request from 'superagent';
+import endpoints from '../config/api-endpoints';
+import xml from 'xml-parse';
+// const request = require('superagent');
+// const endpoints = require('../config/api-endpoints');
+// const xml = require('xml-parse');
+// const R = require('ramda');
 
 // Picks an XML tag by name and returns the child nodes
 const getXMLTag = (tagName) =>
@@ -13,7 +14,7 @@ const getXMLTag = (tagName) =>
     R.prop('childNodes')
   )
 
-// Take results from Cat Image XML api and return a list of URLs
+// Get array of Image URLs from Cat Image XML api results
 const parseCatPhotosXMLResponse =
   R.pipe(
     R.prop('text'),
@@ -25,12 +26,21 @@ const parseCatPhotosXMLResponse =
     R.map(R.pipe(R.prop('childNodes'), getXMLTag('url'), R.head, R.prop('text')))
   );
 
-const getCatPhotos = () =>
+// Get array of Fact strings from Cat Facts JSON api results
+const parseCatFactsJSONResponse =
+  R.pipe(
+    R.path(['body', 'body']),
+    JSON.parse,
+    R.prop('data'),
+    R.pluck('fact')
+  )
+
+export const getCatPhotos = () =>
 request
   .get(endpoints.catPhotos)
-  .then(parseCatPhotosXMLResponse)
-  .then(console.log);
+  .then(parseCatPhotosXMLResponse);
 
-
-
-getCatPhotos();
+export const getCatFacts = () =>
+request
+  .get(endpoints.catFacts)
+  .then(parseCatFactsJSONResponse);
