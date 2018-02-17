@@ -2,9 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as R from 'ramda';
-import '../styles/reset.css';
-import '../styles/index.css';
-
 import Header from './Header';
 import Feed from './Feed';
 import * as catsActions from '../actions/cats';
