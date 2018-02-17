@@ -6,4 +6,6 @@ npm install
 
 npm start
 
+## Screen Capture
+
 ![Screen capture of application in action](https://github.com/austinba/world-of-cats/blob/master/screen-capture.gif)
