@@ -5,6 +5,7 @@ import * as R from 'ramda';
 import '../styles/reset.css';
 import '../styles/index.css';
 
+import Header from './Header';
 import Feed from './Feed';
 import * as catsActions from '../actions/cats';
 
@@ -16,7 +17,10 @@ class App extends React.Component {
     this.props.catsActions.loadCats();
   }
   render() {
-    return <div><Feed/></div>
+    return <div>
+      <Header />
+      <Feed/>
+    </div>
   }
 }
 

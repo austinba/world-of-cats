@@ -10,11 +10,11 @@ class CatBox extends React.Component {
   render() {
     const id = this.props.id;
     const {image, fact, height} = this.props.cats[id];
-    const {updateHeight} = this.props.actions;
+    const {updateHeight, addFavorite} = this.props.actions;
 
     return <div className="cat-box">
       <ResizeObserver onResize={(rect) => updateHeight(id, rect.height)} />
-      <div className="like-button">LIKE</div>
+      <div className="like-button" onClick={() => addFavorite(id)}>LIKE</div>
       <div><img src={image} className="cat-image" /></div>
       <div className="cat-text">{fact}</div>
     </div>

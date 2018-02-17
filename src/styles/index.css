@@ -57,3 +57,21 @@ body {
 .like-button:hover {
   background-color: rgba(150, 0, 0, 0.9);
 }
+.header {
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+}
+.header a {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: inline-block;
+}
+a {
+  color: rgb(190, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  color: rgb(230, 0, 0)
+}
