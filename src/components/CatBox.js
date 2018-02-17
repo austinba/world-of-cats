@@ -14,6 +14,7 @@ class CatBox extends React.Component {
 
     return <div className="cat-box">
       <ResizeObserver onResize={(rect) => updateHeight(id, rect.height)} />
+      <div className="like-button">LIKE</div>
       <div><img src={image} className="cat-image" /></div>
       <div className="cat-text">{fact}</div>
     </div>

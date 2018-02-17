@@ -1,18 +1,32 @@
+body {
+  font-family: Helvetica Neue,Helvetica,\\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3,Hiragino Kaku Gothic Pro,\\30E1\30A4\30EA\30AA,Meiryo,"\FF2D\FF33 \FF30\30B4\30B7\30C3\30AF",arial,sans-serif;
+  /* Same font family as used in Pinterest */
+}
 .cat-box {
   width: 240px;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
+  padding: 10px;
   display: inline-block;
   vertical-align: top;
   position: relative;
+  border-radius: 12px;
+}
+.cat-box:hover {
+  background-color: #EEE;
+}
+.cat-box:hover .like-button{
+    visibility: visible;
+}
+.cat-box:hover .cat-image{
+    filter: brightness(70%);
 }
 .cat-text {
-  font-family: Helvetica Neue,Helvetica,\\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3,Hiragino Kaku Gothic Pro,\\30E1\30A4\30EA\30AA,Meiryo,"\FF2D\FF33 \FF30\30B4\30B7\30C3\30AF",arial,sans-serif;
   color: #555;
   font-size: 16px;
   margin-top: 5px;
 }
 .cat-image {
-  width: 100%;
+  width: 240px;
   border-radius: 10px;
 }
 .feed-column {
@@ -25,4 +39,21 @@
   margin-left: 40px;
   margin-right: 40px;
   text-align: center;
+}
+.like-button {
+  visibility: hidden;
+  background-color: rgba(190, 0, 0, 0.9);
+  color: #EEE;
+  border-radius: 3px;
+  font-size: 16px;
+  width: 60px;
+  padding: 7px;
+  text-align: center;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
+}
+.like-button:hover {
+  background-color: rgba(150, 0, 0, 0.9);
 }
