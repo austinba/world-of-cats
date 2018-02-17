@@ -1,0 +1,10 @@
+.cat-box {
+  width: 240px;
+  display: inline-block;
+  vertical-align: top;
+
+
+}
+.cat-image {
+  width: 100%;
+}
