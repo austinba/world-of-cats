@@ -4,12 +4,9 @@ import Feed from './Feed';
 import * as R from 'ramda';
 
 const FavoritesFeed = (props) => {
-  const {cats, display, favorites} = props;
-
-  if(cats.status === 'LOADING') return <h2>LOADING...</h2>;
-  if(cats.status === 'ERROR') return <h2>ERROR LOADING CATS</h2>
-
+  const {cats, favorites} = props;
   const favoriteCats = R.values(R.pickAll(R.values(favorites || {}), cats.data));
+  if(favoriteCats.length === 0) return <div className="message">You haven't selected any favorites yet!</div>;
   return <Feed cats={favoriteCats} />
 }
 

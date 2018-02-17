@@ -9,6 +9,7 @@ import './styles/reset.css';
 import './styles/index.css';
 import App from './components/App';
 import MainFeed from './components/MainFeed';
+import ViewCat from './components/ViewCat';
 import FavoritesFeed from './components/FavoritesFeed';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -21,6 +22,7 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={MainFeed} />
         <Route path="/favorites" component={FavoritesFeed} />
+        <Route path="/cat/:id" component={ViewCat} />
       </Route>
     </Router>
   </Provider>

@@ -14,9 +14,14 @@ class App extends React.Component {
     if(this.props.cats.status = 'NOT_LOADED') this.props.catsActions.loadCats();
   }
   render() {
+    let contents = <div></div>;
+    if(this.props.cats.status === 'NOT_LOADED') contents = <div className="message">LOADING...</div>;
+    if(this.props.cats.status === 'ERROR') contents = <div className="message">ERROR LOADING CATS</div>;
+    if(this.props.cats.status === 'LOADED') contents = this.props.children;
+
     return <div>
       <Header />
-      {this.props.children}
+      {contents}
     </div>
   }
 }
