@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ResizeObserver from 'react-resize-observer';
+import { Link } from 'react-router';
 
 import * as catBoxActions from  '../actions/catBox';
 
@@ -19,8 +20,10 @@ class CatBox extends React.Component {
     return <div className="cat-box">
       <ResizeObserver onResize={(rect) => updateHeight(id, rect.height)} />
       {likeBox}
-      <div><img src={image} className="cat-image" /></div>
-      <div className="cat-text">{fact}</div>
+      <Link to={'/cat/'+id}>
+        <div><img src={image} className="cat-image" /></div>
+        <div className="cat-text">{fact}</div>
+      </Link>
     </div>
   }
 }
