@@ -8,9 +8,6 @@ import FeedColumn from './FeedColumn';
 import * as displayActions from '../actions/display';
 
 class Feed extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const {cats, display} = this.props;
     const columnCount = Math.floor(display.feedWidth / 280);

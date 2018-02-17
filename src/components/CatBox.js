@@ -10,7 +10,7 @@ class CatBox extends React.Component {
 
   render() {
     const id = this.props.id;
-    const {image, fact, height} = this.props.cats[id];
+    const {image, fact} = this.props.cats[id];
     const {updateHeight, addFavorite, removeFavorite} = this.props.actions;
 
     const likeBox = !this.props.favorites.hasOwnProperty(id) ?
@@ -21,7 +21,7 @@ class CatBox extends React.Component {
       <ResizeObserver onResize={(rect) => updateHeight(id, rect.height)} />
       {likeBox}
       <Link to={'/cat/'+id}>
-        <div><img src={image} className="cat-image" /></div>
+        <div><img src={image} className="cat-image" alt="image of a cat" /></div>
         <div className="cat-text">{fact}</div>
       </Link>
     </div>
