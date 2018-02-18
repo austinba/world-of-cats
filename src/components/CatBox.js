@@ -18,7 +18,7 @@ const CatBox = (props) => {
       <ResizeObserver onResize={(rect) => props.updateCatBoxHeight(id, rect.height)} />
       {likeBox}
       <Link to={'/cat/'+id}>
-        <div><img src={image} className="cat-image" alt="image of a cat" /></div>
+        <div><img src={image} className="cat-image" alt="a cat" /></div>
         <div className="cat-text">{fact}</div>
       </Link>
     </div>

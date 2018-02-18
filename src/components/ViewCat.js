@@ -10,7 +10,7 @@ const ViewCat = (props) => {
   return (
     <div className="view-a-cat-box">
       <div className="view-a-cat-text">{fact}</div>
-      <div><img src={image} className="view-a-cat-image" alt="image of a cat"/></div>
+      <div><img src={image} className="view-a-cat-image" alt="a cat"/></div>
     </div>
   );
 }
