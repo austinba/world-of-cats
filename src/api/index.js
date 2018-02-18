@@ -2,10 +2,6 @@ import * as R from 'ramda';
 import request from 'superagent';
 import endpoints from '../config/api-endpoints';
 import xml from 'xml-parse';
-// const request = require('superagent');
-// const endpoints = require('../config/api-endpoints');
-// const xml = require('xml-parse');
-// const R = require('ramda');
 
 // Picks an XML tag by name and returns the child nodes
 const getXMLTag = (tagName) =>
