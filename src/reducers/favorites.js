@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import { ADD_FAVORITE, REMOVE_FAVORITE } from '../actions/actionTypes';
 
-const initialState = {};
+const initialState = {}; // Stored as a SET of catIDs {'12': 12, '18':18, '24':24}
 
 const catsReducer = (state = initialState, action) => {
   switch(action.type) {

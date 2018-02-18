@@ -6,7 +6,10 @@ import {
 } from '../actions/actionTypes';
 
 const initialState = {
-  status: NOT_LOADED
+  status: NOT_LOADED,
+  cats: {
+    data: []
+  }
 };
 
 const catsReducer = (state = initialState, action) => {

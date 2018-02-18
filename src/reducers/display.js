@@ -2,7 +2,8 @@ import * as R from 'ramda';
 import { FEED_UPDATE_WIDTH, CATBOX_UPDATE_HEIGHT } from '../actions/actionTypes';
 
 const initialState = {
-  feedWidth: 500
+  feedWidth: 500,
+  catBoxHeights: []
 };
 
 const displayReducer = (state = initialState, action) => {
