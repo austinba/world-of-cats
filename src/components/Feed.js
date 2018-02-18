@@ -7,17 +7,17 @@ import * as R from 'ramda';
 import FeedColumn from './FeedColumn';
 import * as displayActions from '../actions/display';
 
-class Feed extends React.Component {
-  render() {
-    const {cats, display} = this.props;
-    const columnCount = Math.floor(display.feedWidth / 280);
-    const columnCats = splitIntoColumns(cats, display.catBoxHeights, columnCount);
+const Feed = props => {
+  const {cats, display} = props;
+  const columnCount = Math.floor(display.feedWidth / 280);
+  const columnCats = splitIntoColumns(cats, display.catBoxHeights, columnCount);
 
-    return <div className="feed">
-      <ResizeObserver onResize={(rect) => this.props.displayActions.updateFeedWidth(rect.width)} />
+  return (
+    <div className="feed">
+      <ResizeObserver onResize={(rect) => props.updateFeedWidth(rect.width)} />
         { columnCats.map((catsInColumn, id) => <FeedColumn cats={catsInColumn} key={id} />) }
     </div>
-  }
+  );
 }
 
 function splitIntoColumns(cats, boxHeights, columnCount) {
@@ -32,7 +32,7 @@ function splitIntoColumns(cats, boxHeights, columnCount) {
 }
 
 const mapDispatchToProps = dispatch => ({
-  displayActions: bindActionCreators(displayActions, dispatch),
+  updateFeedWidth: bindActionCreators(displayActions.updateFeedWidth, dispatch),
 })
 const mapStateToProps = state => ({
   display: state.display

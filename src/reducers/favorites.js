@@ -1,13 +1,14 @@
 import * as R from 'ramda';
+import { ADD_FAVORITE, REMOVE_FAVORITE } from '../actions/actionTypes';
 
 const initialState = {};
 
 const catsReducer = (state = initialState, action) => {
   switch(action.type) {
-    case 'ADD_FAVORITE':
+    case ADD_FAVORITE:
       return R.assoc(action.id.toString(), action.id)(state);
 
-    case 'REMOVE_FAVORITE':
+    case REMOVE_FAVORITE:
       return R.dissoc(action.id.toString())(state);
 
     default:
