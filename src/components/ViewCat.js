@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 const ViewCat = (props) => {
   const id = props.params.id;
-  console.log(props)
   if(!props.cats[id]) return <div className="message">Could not find requested cat. Please go back.</div>;
   const {image, fact} = props.cats[id];
 
