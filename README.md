@@ -1,4 +1,4 @@
-# World of Cats (Pinterest for Cats)
+# World of Cats
 This is a Pinterest-like interface for cats. You have the ability to add favorites and view cats individually. Each cat will tell you a fun fact!
 
 ## To use
